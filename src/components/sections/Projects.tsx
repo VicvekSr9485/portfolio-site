@@ -7,29 +7,20 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "Agile Dev",
-      description: "A comprehensive agile project management platform designed to streamline development workflows, enhance team collaboration, and improve project delivery efficiency.",
-      image: "https://via.placeholder.com/600x400",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Agile Methodology"],
-      liveUrl: "https://agile-dev.vercel.app/#",
-      githubUrl: "https://github.com"
-    },
-    {
-      id: 2,
       title: "Bug Tracking System",
       description: "A robust bug tracking and issue management system that helps development teams identify, track, and resolve software defects efficiently.",
-      image: "https://via.placeholder.com/600x400",
-      technologies: ["React", "Node.js", "Express", "MongoDB", "JWT Authentication"],
+      image: "images/bugtracker.png",
+      technologies: ["React", "Java", "Springboot", "PostgreSQL", "JWT Authentication"],
       liveUrl: "https://bug-tracking-system-xi.vercel.app/",
       githubUrl: "https://github.com/VicvekSr9485/Bug-Tracking-System"
     }
   ];
-
+  
   return (
     <section id="projects" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-16 relative">
-          Featured Projects
+          Projects
           <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-amber-500 mt-2"></span>
         </h2>
         
@@ -55,11 +46,23 @@ const Projects: React.FC = () => {
                   ))}
                 </div>
                 
-                <div className="flex space-x-4">
-                  <Button variant="primary" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                <div className="flex flex-wrap gap-3">
+                  <Button 
+                    variant="primary" 
+                    href={project.liveUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center"
+                  >
                     <i className="fas fa-external-link-alt mr-2"></i> Live Demo
                   </Button>
-                  <Button variant="outline" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                  <Button 
+                    variant="outline" 
+                    href={project.githubUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+                  >
                     <i className="fab fa-github mr-2"></i> GitHub
                   </Button>
                 </div>

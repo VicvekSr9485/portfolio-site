@@ -8,7 +8,7 @@ const ExperienceSection: React.FC = () => {
       id: 1,
       position: "Full Stack Software Engineer & AI Solutions Intern",
       company: "PARI Technologies",
-      period: "12/2024 - 04/2025",
+      period: "12/2024 - 05/2025",
       location: "Malaysia | Remote",
       responsibilities: [
         "Increased model prediction accuracy by 18% by fine-tuning and retraining Random Forest and Gaussian predictive models",
@@ -19,7 +19,7 @@ const ExperienceSection: React.FC = () => {
     },
     {
       id: 2,
-      position: "Software Engineer",
+      position: "Software Engineer Trainee",
       company: "ALX",
       period: "02/2022 - 03/2023",
       location: "Remote",
@@ -48,7 +48,7 @@ const ExperienceSection: React.FC = () => {
       id: 4,
       position: "Lab Scientist Intern",
       company: "Christ Hope Hospital, Osoko",
-      period: "10/2017 - 09/2018",
+      period: "06/2016 - 10/2016",
       location: "Ibadan, Oyo State, Nigeria",
       responsibilities: [
         "Assisted in conducting diagnostic tests and analyzing samples under supervision",
@@ -71,7 +71,6 @@ const ExperienceSection: React.FC = () => {
       ]
     }
   ];
-
   return (
     <section id="experience" className="py-20 bg-slate-50">
       <div className="container mx-auto px-4">
@@ -82,24 +81,50 @@ const ExperienceSection: React.FC = () => {
         
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200"></div>
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-blue-800 transform -translate-x-1/2 opacity-40"></div>
           
           {experiences.map((exp, index) => (
-            <div key={exp.id} className={`mb-12 flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-              <div className="w-1/2 px-8">
-                <Card className="p-6">
-                  <h3 className="text-xl font-semibold text-blue-800 mb-2">{exp.position}</h3>
-                  <p className="text-blue-600 font-medium mb-1">{exp.company}</p>
-                  <p className="text-slate-500 text-sm mb-4">{exp.period} | {exp.location}</p>
-                  <ul className="list-disc pl-5 space-y-2">
-                    {exp.responsibilities.map((resp, i) => (
-                      <li key={i} className="text-slate-600">{resp}</li>
-                    ))}
-                  </ul>
-                </Card>
-              </div>
-              <div className="w-1/2 flex justify-center items-center">
-                <div className="w-6 h-6 rounded-full bg-blue-600 border-4 border-white shadow-md z-10"></div>
+            <div key={exp.id} className="relative mb-12">
+              {/* Timeline dot */}
+              <div className="absolute left-1/2 top-6 w-6 h-6 rounded-full bg-white border-4 border-blue-800 shadow-md z-10 transform -translate-x-1/2"></div>
+              
+              <div className={`flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                <div className="w-1/2">
+                  {index % 2 === 0 ? (
+                    <div className="pr-8 text-right">
+                      <Card className="relative inline-block p-6 text-left">
+                        {/* Arrow pointing from card to timeline dot */}
+                        <div className="absolute top-6 right-0 w-0 h-0 border-t-8 border-t-transparent border-r-8 border-r-blue-800 border-b-8 border-b-transparent transform translate-x-0"></div>
+                        
+                        <h3 className="text-xl font-semibold text-blue-800 mb-2">{exp.position}</h3>
+                        <p className="text-blue-600 font-medium mb-1">{exp.company}</p>
+                        <p className="text-slate-500 text-sm mb-4">{exp.period} | {exp.location}</p>
+                        <ul className="list-disc pl-5 space-y-2">
+                          {exp.responsibilities.map((resp, i) => (
+                            <li key={i} className="text-slate-600">{resp}</li>
+                          ))}
+                        </ul>
+                      </Card>
+                    </div>
+                  ) : (
+                    <div className="pl-8">
+                      <Card className="relative p-6">
+                        {/* Arrow pointing from card to timeline dot */}
+                        <div className="absolute top-6 left-0 w-0 h-0 border-t-8 border-t-transparent border-l-8 border-l-blue-800 border-b-8 border-b-transparent transform -translate-x-0"></div>
+                        
+                        <h3 className="text-xl font-semibold text-blue-800 mb-2">{exp.position}</h3>
+                        <p className="text-blue-600 font-medium mb-1">{exp.company}</p>
+                        <p className="text-slate-500 text-sm mb-4">{exp.period} | {exp.location}</p>
+                        <ul className="list-disc pl-5 space-y-2">
+                          {exp.responsibilities.map((resp, i) => (
+                            <li key={i} className="text-slate-600">{resp}</li>
+                          ))}
+                        </ul>
+                      </Card>
+                    </div>
+                  )}
+                </div>
+                <div className="w-1/2"></div>
               </div>
             </div>
           ))}
@@ -108,5 +133,4 @@ const ExperienceSection: React.FC = () => {
     </section>
   );
 };
-
 export default ExperienceSection;

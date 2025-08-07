@@ -9,7 +9,7 @@ const EducationSection: React.FC = () => {
       degree: "B.Sc. Computer Science",
       institution: "IU International University of Applied Sciences",
       period: "07/2024 - 06/2027",
-      location: "Germany | Online Studies"
+      location: "Bad Honnef, Germany"
     },
     {
       id: 2,

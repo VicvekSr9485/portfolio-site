@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Button from '../common/Button';
 import type { ContactForm } from '../../types';
-import { useForm } from '../../hooks/UseForm';
-import { sendEmail } from '../../services/Email';
+import { useForm } from '../../hooks/useForm';
+import { sendEmail } from '../../services/email';
 
 const Contact: React.FC = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -43,7 +43,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold">Phone</h3>
-                  <p>2347086718384</p>
+                  <p>+2347086718384</p>
                 </div>
               </div>
               

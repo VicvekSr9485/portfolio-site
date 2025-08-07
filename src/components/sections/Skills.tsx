@@ -1,6 +1,32 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faGitAlt, faGithub, faJava, faJsSquare, faPython, faLinux 
+} from '@fortawesome/free-brands-svg-icons';
+import { 
+  faDatabase, faServer, faCode, faTerminal, faCloud, 
+  faBrain, faChartBar, faRobot 
+} from '@fortawesome/free-solid-svg-icons';
 import type { Skill } from '../../types';
 import Card from '../common/Card';
+
+// Create a mapping of icon names to icon objects
+const iconMap = {
+  "fab fa-git-alt": faGitAlt,
+  "fab fa-github": faGithub,
+  "fab fa-java": faJava,
+  "fab fa-js-square": faJsSquare,
+  "fab fa-python": faPython,
+  "fab fa-linux": faLinux,
+  "fas fa-database": faDatabase,
+  "fas fa-server": faServer,
+  "fas fa-code": faCode,
+  "fas fa-terminal": faTerminal,
+  "fas fa-cloud": faCloud,
+  "fas fa-brain": faBrain,
+  "fas fa-chart-bar": faChartBar,
+  "fas fa-robot": faRobot
+};
 
 const Skills: React.FC = () => {
   const skills: Skill[] = [
@@ -21,7 +47,7 @@ const Skills: React.FC = () => {
     { id: 15, name: "Pandas", icon: "fas fa-chart-bar" },
     { id: 16, name: "LangChain", icon: "fas fa-robot" }
   ];
-
+  
   return (
     <section id="skills" className="py-20 bg-slate-50">
       <div className="container mx-auto px-4">
@@ -33,7 +59,10 @@ const Skills: React.FC = () => {
         <div className="flex flex-wrap justify-center gap-6">
           {skills.map((skill) => (
             <Card key={skill.id} className="w-32 h-32 flex flex-col items-center justify-center p-4">
-              <i className={`${skill.icon} text-3xl text-blue-600 mb-3`}></i>
+              <FontAwesomeIcon 
+                icon={iconMap[skill.icon as keyof typeof iconMap]} 
+                className="text-3xl text-blue-600 mb-3" 
+              />
               <h4 className="text-center font-medium">{skill.name}</h4>
             </Card>
           ))}

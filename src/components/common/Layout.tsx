@@ -10,7 +10,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="min-h-screen bg-slate-50">
       <header className="bg-white shadow-md fixed w-full z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-blue-600">Oso Olamide</div>
+          <div className="text-2xl font-bold text-blue-600">Olamide Oso</div>
           <nav className="hidden md:flex space-x-8">
             <a href="#home" className="text-slate-800 hover:text-blue-600 font-medium">Home</a>
             <a href="#about" className="text-slate-800 hover:text-blue-600 font-medium">About</a>
@@ -46,7 +46,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <i className="fab fa-twitter text-xl"></i>
             </a>
           </div>
-          <p>&copy; {new Date().getFullYear()} Oso Olamide Sunday. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Olamide Oso. All Rights Reserved.</p>
         </div>
       </footer>
     </div>
