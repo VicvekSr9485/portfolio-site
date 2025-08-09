@@ -13,6 +13,15 @@ const Projects: React.FC = () => {
       technologies: ["React", "Java", "Springboot", "PostgreSQL", "JWT Authentication"],
       liveUrl: "https://bug-tracking-system-xi.vercel.app/",
       githubUrl: "https://github.com/VicvekSr9485/Bug-Tracking-System"
+    },
+    {
+      id: 2,
+      title: "MERN AI Chat Assistant",
+      description: "An intelligent chat application powered by the Gemini API, built with the MERN stack. It enables users to have interactive AI-driven conversations, manage chat history securely, and experience a responsive, user-friendly interface.",
+      image: "images/chat-assistant.png",
+      technologies: ["React", "Nodejs", "Express", "MongoDB", "JWT", "Gemini API", "Material UI"],
+      liveUrl: "https://mern-ai-assistant.vercel.app/",
+      githubUrl: "https://github.com/VicvekSr9485/MERN-AI-ASSISTANT"
     }
   ];
   
