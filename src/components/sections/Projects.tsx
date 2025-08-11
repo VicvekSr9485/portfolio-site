@@ -22,7 +22,16 @@ const Projects: React.FC = () => {
       technologies: ["React", "Nodejs", "Express", "MongoDB", "JWT", "Gemini API", "Material UI"],
       liveUrl: "https://mern-ai-assistant.vercel.app/",
       githubUrl: "https://github.com/VicvekSr9485/MERN-AI-ASSISTANT"
-    }
+    },
+    {
+      id: 3,
+      title: "FriendNet Image Sharing Platform",
+      description: "A modern image-sharing web application built with React and Sanity CMS, featuring Google OAuth authentication. Users can securely upload, browse, and search for images in a responsive interface with real-time updates powered by Sanity.",
+      image: "images/friendnet.png",
+      technologies: ["React", "Tailwind CSS", "Sanity CMS", "Google OAuth", "JavaScript"],
+      liveUrl: "https://pixella.vercel.app/",
+      githubUrl: "https://github.com/VicvekSr9485/FriendNet"
+    },
   ];
   
   return (
