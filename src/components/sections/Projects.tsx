@@ -7,6 +7,15 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
+      title: "AI Research & Report Generator",
+      description: "An intelligent multi-agent workflow automation system that conducts research, analyzes data, and generates professional business reports in minutes using specialized AI agents.",
+      image: "images/ai-research-generator.png",
+      technologies: ["React", "TypeScript", "FastAPI", "LangChain", "Google Gemini API", "Pandas", "SerpAPI", "TailwindCSS"],
+      liveUrl: "https://multi-agents-workflow-automation.vercel.app/",
+      githubUrl: "https://github.com/VicvekSr9485/multi-agents-workflow-automation"
+    },
+    {
+      id: 2,
       title: "Bug Tracking System",
       description: "A robust bug tracking and issue management system that helps development teams identify, track, and resolve software defects efficiently.",
       image: "images/bugtracker.png",
@@ -15,7 +24,7 @@ const Projects: React.FC = () => {
       githubUrl: "https://github.com/VicvekSr9485/Bug-Tracking-System"
     },
     {
-      id: 2,
+      id: 3,
       title: "MERN AI Chat Assistant",
       description: "An intelligent chat application powered by the Gemini API, built with the MERN stack. It enables users to have interactive AI-driven conversations, manage chat history securely, and experience a responsive, user-friendly interface.",
       image: "images/chat-assistant.png",
@@ -24,7 +33,7 @@ const Projects: React.FC = () => {
       githubUrl: "https://github.com/VicvekSr9485/MERN-AI-ASSISTANT"
     },
     {
-      id: 3,
+      id: 4,
       title: "FriendNet Image Sharing Platform",
       description: "A modern image-sharing web application built with React and Sanity CMS, featuring Google OAuth authentication. Users can securely upload, browse, and search for images in a responsive interface with real-time updates powered by Sanity.",
       image: "images/friendnet.png",
