@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt, faBookReader } from '@fortawesome/free-solid-svg-icons';
 import type { Project } from '../../types';
-import Button from '../common/Button';
 
 const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
   const ref = useRef<HTMLDivElement>(null);
