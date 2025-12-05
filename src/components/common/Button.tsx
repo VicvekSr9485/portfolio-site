@@ -2,7 +2,7 @@ import React from 'react';
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   href?: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
@@ -23,14 +23,16 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   className = ''
 }) => {
-  const baseClasses = 'px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center';
+  const baseClasses = 'px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center justify-center transform hover:-translate-y-1 tracking-wide';
   
   const variantClasses = {
-    primary: 'bg-amber-500 text-white hover:bg-amber-600 hover:shadow-lg',
-    outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white'
+    primary: 'bg-primary text-background hover:bg-cyan-300 hover:shadow-lg shadow-primary/20 font-bold',
+    secondary: 'bg-secondary text-text hover:bg-slate-700 hover:shadow-lg shadow-black/30 border border-white/5',
+    outline: 'border border-primary text-primary hover:bg-primary/10',
+    ghost: 'text-muted hover:text-primary hover:bg-white/5'
   };
   
-  const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : '';
+  const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed hover:transform-none' : '';
   
   const classes = `${baseClasses} ${variantClasses[variant]} ${disabledClasses} ${className}`;
   

@@ -1,84 +1,93 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const About: React.FC = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  
   const strengths = [
-    "Adaptability", "Team Player", "Creativity", "Time Management", 
-    "Attention to Detail", "Resilience", "Problem Solving", "Effective Communication"
+    "Engineering Excellence", "System Design", "TDD", "Scalability", 
+    "Modular Architecture", "API Design", "Problem Solving", "Maintainability"
   ];
   
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-16 relative">
-          About Me
-          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-amber-500 mt-2"></span>
-        </h2>
+    <section id="about" className="py-20 bg-background relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">About Me</h2>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+        </motion.div>
         
         <div className="flex flex-col md:flex-row gap-12 items-center">
-          <div className="md:w-1/2">
-            <h3 className="text-2xl font-semibold text-blue-800 mb-4">Full-Stack Software Engineer</h3>
-            <p className="text-slate-600 mb-4">
-              I'm a Full Stack Software Engineer with a strong background in backend development and team collaboration. I excel in teamwork and communication, ensuring that both technical and collaborative tasks are executed efficiently.
+          <motion.div 
+            className="md:w-1/2"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h3 className="text-2xl font-semibold text-primary mb-6">Full Stack & AI Systems Engineer</h3>
+            <p className="text-muted mb-4 text-lg leading-relaxed">
+              Full Stack Engineer with 3+ years of hands-on experience building production-grade systems, scalable APIs, and robust architectures. I have a proven ability to design modular service integrations, implement Test Driven Development (TDD) workflows, and deliver high-velocity, high-reliability engineering output.
             </p>
-            <p className="text-slate-600 mb-4">
-              With experience in designing sophisticated software architecture with efficient load-balancing, caching, and avoiding Single-Point-of-Failure (SPOF), I bring robust solutions to complex problems.
+            <p className="text-muted mb-4 text-lg leading-relaxed">
+              I am experienced in designing clean database schemas, writing developer-friendly documentation, and building real-world service logic including authentication, messaging, workflow automation, and retrieval systems.
             </p>
-            <p className="text-slate-600 mb-6">
-              My recent work in AI solutions has improved model prediction accuracy by 18% and reduced integration time by 30%, demonstrating my ability to deliver measurable results.
+            <p className="text-muted mb-8 text-lg leading-relaxed">
+              My focus is on engineering excellence, correctness, and maintainability, ensuring that every system I build is robust, scalable, and ready for production.
             </p>
             
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               {strengths.map((strength, index) => (
-                <span key={index} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                <motion.span 
+                  key={index} 
+                  className="px-4 py-2 bg-secondary text-primary rounded-full text-sm font-medium border border-primary/20 hover:bg-primary hover:text-background transition-colors cursor-default"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.1 * index }}
+                  whileHover={{ scale: 1.05 }}
+                >
                   {strength}
-                </span>
+                </motion.span>
               ))}
             </div>
-          </div>
+          </motion.div>
           
-          <div className="md:w-1/2 flex justify-center">
-            <div 
-              className="relative group"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              {/* Main profile image with effects */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-200 shadow-xl transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
-                <img 
-                  src="/images/profile.png" 
-                  alt="Oso Olamide Sunday" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                {/* Animated border effect */}
-                <div className="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-blue-500 transition-all duration-500"></div>
-                
-                {/* Shimmer effect */}
-                <div className="absolute inset-0 overflow-hidden rounded-full">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+          <motion.div 
+            className="md:w-1/2 flex justify-center"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <div className="relative group w-full max-w-md">
+              <div className="absolute -inset-1 bg-primary/30 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative bg-secondary p-8 rounded-2xl shadow-xl border border-white/5">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center p-4 bg-background/50 rounded-xl border border-white/5">
+                    <h4 className="text-3xl font-bold text-primary mb-1">3+</h4>
+                    <p className="text-sm text-muted">Years Experience</p>
+                  </div>
+                  <div className="text-center p-4 bg-background/50 rounded-xl border border-white/5">
+                    <h4 className="text-3xl font-bold text-primary mb-1">10+</h4>
+                    <p className="text-sm text-muted">Projects Completed</p>
+                  </div>
+                  <div className="text-center p-4 bg-background/50 rounded-xl border border-white/5">
+                    <h4 className="text-3xl font-bold text-primary mb-1">5+</h4>
+                    <p className="text-sm text-muted">Happy Clients</p>
+                  </div>
+                  <div className="text-center p-4 bg-background/50 rounded-xl border border-white/5">
+                    <h4 className="text-3xl font-bold text-primary mb-1">24/7</h4>
+                    <p className="text-sm text-muted">Support</p>
+                  </div>
                 </div>
               </div>
-              
-              {/* Floating badges */}
-              <div className="absolute -top-4 -right-4 bg-amber-500 text-white rounded-full w-16 h-16 flex items-center justify-center font-bold shadow-lg transform transition-all duration-500 group-hover:rotate-12">
-                <span className="text-xs text-center">PRO</span>
-              </div>
-              
-              <div className="absolute -bottom-4 -left-4 bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center font-bold shadow-lg transform transition-all duration-500 group-hover:-rotate-12">
-                <span className="text-xs text-center">DEV</span>
-              </div>
-              
-              {/* Glow effect on hover */}
-              {isHovered && (
-                <div className="absolute inset-0 rounded-full bg-blue-400/20 blur-xl -z-10 animate-pulse"></div>
-              )}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

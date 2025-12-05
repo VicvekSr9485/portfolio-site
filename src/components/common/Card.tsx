@@ -16,7 +16,7 @@ const Card: React.FC<CardProps> = ({
     : '';
   
   return (
-    <div className={`bg-white rounded-lg shadow-md overflow-hidden ${hoverClasses} ${className}`}>
+    <div className={`bg-slate-800 rounded-lg shadow-md overflow-hidden border border-slate-700 ${hoverClasses} ${className}`}>
       {children}
     </div>
   );

@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGraduationCap, faCalendarAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import type { Education } from '../../types';
-import Card from '../common/Card';
 
 const EducationSection: React.FC = () => {
   const educationList: Education[] = [
@@ -8,41 +10,64 @@ const EducationSection: React.FC = () => {
       id: 1,
       degree: "B.Sc. Computer Science",
       institution: "IU International University of Applied Sciences",
-      period: "07/2024 - 06/2027",
       location: "Bad Honnef, Germany"
     },
     {
       id: 2,
       degree: "B.Sc. Agricultural Extension & Rural Development",
       institution: "University of Ibadan",
-      period: "09/2019 - 02/2025",
       location: "Ibadan, Oyo State Nigeria"
     },
     {
       id: 3,
       degree: "National Diploma | Science Laboratory Technology",
       institution: "Crown Polytechnic",
-      period: "10/2015 - 10/2017",
       location: "Odo Ado Ekiti State, Nigeria"
     }
   ];
 
   return (
-    <section id="education" className="py-20 bg-white">
+    <section id="education" className="py-20 bg-background relative">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-16 relative">
-          Education
-          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-amber-500 mt-2"></span>
-        </h2>
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Education</h2>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+        </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {educationList.map((edu) => (
-            <Card key={edu.id} className="p-6">
-              <h3 className="text-xl font-semibold text-blue-800 mb-2">{edu.degree}</h3>
-              <p className="text-blue-600 font-medium mb-1">{edu.institution}</p>
-              <p className="text-slate-500">{edu.period}</p>
-              <p className="text-slate-500">{edu.location}</p>
-            </Card>
+          {educationList.map((edu, index) => (
+            <motion.div 
+              key={edu.id} 
+              className="bg-secondary p-8 rounded-2xl shadow-lg border border-white/5 hover:shadow-primary/10 transition-all duration-300 group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
+            >
+              <div className="w-12 h-12 bg-background rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300 border border-white/5">
+                <FontAwesomeIcon icon={faGraduationCap} className="text-primary text-xl group-hover:text-background transition-colors duration-300" />
+              </div>
+              
+              <h3 className="text-xl font-bold text-text mb-2 group-hover:text-primary transition-colors">{edu.degree}</h3>
+              <p className="text-muted font-medium mb-4">{edu.institution}</p>
+              
+              <div className="flex flex-col gap-2 text-sm text-muted/80">
+                <div className="flex items-center gap-2">
+                  <FontAwesomeIcon icon={faCalendarAlt} className="text-primary" />
+                </div>
+                <div className="flex items-center gap-2">
+                  <FontAwesomeIcon icon={faMapMarkerAlt} className="text-primary" />
+                  <span>{edu.location}</span>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

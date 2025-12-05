@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCertificate, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import type { Certification } from '../../types';
-import Card from '../common/Card';
 
 const Certifications: React.FC = () => {
   const certifications: Certification[] = [
@@ -55,20 +57,46 @@ const Certifications: React.FC = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-slate-50">
+    <section id="certifications" className="py-20 bg-background relative">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-16 relative">
-          Certifications
-          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-amber-500 mt-2"></span>
-        </h2>
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Certifications</h2>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+        </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {certifications.map((cert) => (
-            <Card key={cert.id} className="p-6">
-              <h3 className="text-lg font-semibold text-blue-800 mb-2">{cert.title}</h3>
-              <p className="text-blue-600 font-medium mb-1">{cert.issuer}</p>
-              <p className="text-slate-500">{cert.date}</p>
-            </Card>
+          {certifications.map((cert, index) => (
+            <motion.div 
+              key={cert.id} 
+              className="bg-secondary p-6 rounded-2xl shadow-md border border-white/5 hover:shadow-primary/10 transition-all duration-300 group flex flex-col h-full"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              whileHover={{ y: -5 }}
+            >
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-10 h-10 bg-background rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300 border border-white/5">
+                  <FontAwesomeIcon icon={faCertificate} className="text-primary text-lg group-hover:text-background transition-colors duration-300" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-text leading-tight group-hover:text-primary transition-colors">{cert.title}</h3>
+                </div>
+              </div>
+              
+              <div className="mt-auto pt-4 border-t border-white/5">
+                <p className="text-muted font-medium text-sm mb-1">{cert.issuer}</p>
+                <p className="text-muted/60 text-xs flex items-center gap-1">
+                  <FontAwesomeIcon icon={faCalendarCheck} /> Issued: {cert.date}
+                </p>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
