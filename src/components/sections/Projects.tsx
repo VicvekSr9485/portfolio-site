@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt, faBookReader } from '@fortawesome/free-solid-svg-icons';
 import type { Project } from '../../types';
+import RevealOnScroll from '../common/RevealOnScroll';
 
-const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
+const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   const ref = useRef<HTMLDivElement>(null);
   
   const x = useMotionValue(0);
@@ -51,10 +52,6 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
         transformStyle: "preserve-3d",
       }}
       className="bg-secondary rounded-2xl overflow-hidden shadow-lg border border-white/5 flex flex-col h-full relative group perspective-1000"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 z-20"></div>
       
@@ -172,23 +169,19 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="py-20 bg-background relative">
       <div className="container mx-auto px-4">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <RevealOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Featured Projects</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
           <p className="mt-4 text-muted max-w-2xl mx-auto">
             Here are some of the projects I've worked on, showcasing my expertise in full-stack development and AI integration.
           </p>
-        </motion.div>
+        </RevealOnScroll>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <RevealOnScroll key={project.id} delay={index * 0.1} className="h-full">
+              <ProjectCard project={project} />
+            </RevealOnScroll>
           ))}
         </div>
       </div>

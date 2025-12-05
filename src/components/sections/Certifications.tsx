@@ -1,8 +1,8 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCertificate, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 import type { Certification } from '../../types';
+import RevealOnScroll from '../common/RevealOnScroll';
 
 const Certifications: React.FC = () => {
   const certifications: Certification[] = [
@@ -59,26 +59,17 @@ const Certifications: React.FC = () => {
   return (
     <section id="certifications" className="py-20 bg-background relative">
       <div className="container mx-auto px-4">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <RevealOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Certifications</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
-        </motion.div>
+        </RevealOnScroll>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {certifications.map((cert, index) => (
-            <motion.div 
+            <RevealOnScroll 
               key={cert.id} 
               className="bg-secondary p-6 rounded-2xl shadow-md border border-white/5 hover:shadow-primary/10 transition-all duration-300 group flex flex-col h-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
+              delay={index * 0.05}
               whileHover={{ y: -5 }}
             >
               <div className="flex items-start gap-4 mb-4">
@@ -96,7 +87,7 @@ const Certifications: React.FC = () => {
                   <FontAwesomeIcon icon={faCalendarCheck} /> Issued: {cert.date}
                 </p>
               </div>
-            </motion.div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>

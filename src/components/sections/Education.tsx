@@ -1,8 +1,8 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap, faCalendarAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import type { Education } from '../../types';
+import RevealOnScroll from '../common/RevealOnScroll';
 
 const EducationSection: React.FC = () => {
   const educationList: Education[] = [
@@ -29,26 +29,17 @@ const EducationSection: React.FC = () => {
   return (
     <section id="education" className="py-20 bg-background relative">
       <div className="container mx-auto px-4">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <RevealOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Education</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
-        </motion.div>
+        </RevealOnScroll>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {educationList.map((edu, index) => (
-            <motion.div 
+            <RevealOnScroll 
               key={edu.id} 
               className="bg-secondary p-8 rounded-2xl shadow-lg border border-white/5 hover:shadow-primary/10 transition-all duration-300 group"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              delay={index * 0.1}
               whileHover={{ y: -5 }}
             >
               <div className="w-12 h-12 bg-background rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300 border border-white/5">
@@ -67,7 +58,7 @@ const EducationSection: React.FC = () => {
                   <span>{edu.location}</span>
                 </div>
               </div>
-            </motion.div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import type { Experience } from '../../types';
+import RevealOnScroll from '../common/RevealOnScroll';
 
 const ExperienceSection: React.FC = () => {
   const experiences: Experience[] = [
@@ -54,16 +55,10 @@ const ExperienceSection: React.FC = () => {
   return (
     <section id="experience" className="py-20 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <RevealOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Work Experience</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
-        </motion.div>
+        </RevealOnScroll>
         
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline line */}
@@ -76,13 +71,10 @@ const ExperienceSection: React.FC = () => {
           </div>
           
           {experiences.map((exp, index) => (
-            <motion.div 
+            <RevealOnScroll 
               key={exp.id} 
               className={`relative mb-12 md:mb-16 flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              delay={index * 0.1}
             >
               {/* Timeline dot */}
               <div className="absolute left-0 md:left-1/2 top-0 w-6 h-6 rounded-full bg-primary border-4 border-background shadow-md z-10 transform md:-translate-x-1/2 ml-3 md:ml-0"></div>
@@ -114,7 +106,7 @@ const ExperienceSection: React.FC = () => {
                   </ul>
                 </div>
               </div>
-            </motion.div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>

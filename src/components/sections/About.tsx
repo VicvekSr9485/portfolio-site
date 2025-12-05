@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import RevealOnScroll from '../common/RevealOnScroll';
 
 const About: React.FC = () => {
   const strengths = [
@@ -10,25 +11,13 @@ const About: React.FC = () => {
   return (
     <section id="about" className="py-20 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <RevealOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">About Me</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
-        </motion.div>
+        </RevealOnScroll>
         
         <div className="flex flex-col md:flex-row gap-12 items-center">
-          <motion.div 
-            className="md:w-1/2"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
+          <RevealOnScroll className="md:w-1/2" delay={0.2}>
             <h3 className="text-2xl font-semibold text-primary mb-6">Full Stack & AI Systems Engineer</h3>
             <p className="text-muted mb-4 text-lg leading-relaxed">
               Full Stack Engineer with 3+ years of hands-on experience building production-grade systems, scalable APIs, and robust architectures. I have a proven ability to design modular service integrations, implement Test Driven Development (TDD) workflows, and deliver high-velocity, high-reliability engineering output.
@@ -45,25 +34,15 @@ const About: React.FC = () => {
                 <motion.span 
                   key={index} 
                   className="px-4 py-2 bg-secondary text-primary rounded-full text-sm font-medium border border-primary/20 hover:bg-primary hover:text-background transition-colors cursor-default"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.1 * index }}
                   whileHover={{ scale: 1.05 }}
                 >
                   {strength}
                 </motion.span>
               ))}
             </div>
-          </motion.div>
+          </RevealOnScroll>
           
-          <motion.div 
-            className="md:w-1/2 flex justify-center"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
+          <RevealOnScroll className="md:w-1/2 flex justify-center" delay={0.4}>
             <div className="relative group w-full max-w-md">
               <div className="absolute -inset-1 bg-primary/30 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
               <div className="relative bg-secondary p-8 rounded-2xl shadow-xl border border-white/5">
@@ -87,7 +66,7 @@ const About: React.FC = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </RevealOnScroll>
         </div>
       </div>
     </section>

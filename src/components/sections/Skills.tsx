@@ -8,6 +8,7 @@ import {
   faDatabase, faServer, faCode, faTerminal, faCloud, 
   faBrain, faChartBar, faRobot, faLayerGroup, faCheckCircle, faSync, faFileCode
 } from '@fortawesome/free-solid-svg-icons';
+import RevealOnScroll from '../common/RevealOnScroll';
 
 // Create a mapping of icon names to icon objects
 const iconMap: any = {
@@ -92,28 +93,19 @@ const Skills: React.FC = () => {
   return (
     <section id="skills" className="py-20 bg-background relative">
       <div className="container mx-auto px-4">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <RevealOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Technical Skills</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
-        </motion.div>
+        </RevealOnScroll>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, catIndex) => (
-            <motion.div 
+            <RevealOnScroll 
               key={catIndex}
-              className="bg-secondary rounded-2xl p-6 shadow-lg border border-white/5 relative overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -5, borderColor: "rgba(100, 255, 218, 0.3)", boxShadow: "0 10px 30px -10px rgba(100, 255, 218, 0.1)" }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: catIndex * 0.1 }}
+              className="bg-secondary p-6 rounded-2xl shadow-lg border border-white/5 hover:border-primary/20 transition-colors duration-300 h-full"
+              delay={catIndex * 0.1}
             >
+
               <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full -mr-10 -mt-10 transition-transform duration-500 ease-out transform scale-0 group-hover:scale-100"></div>
               
               <h3 className="text-xl font-bold mb-6 text-primary border-b border-white/10 pb-2 relative z-10">{category.title}</h3>
@@ -134,7 +126,7 @@ const Skills: React.FC = () => {
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>

@@ -6,6 +6,7 @@ import { faPhone, faEnvelope, faMapMarkerAlt, faCheckCircle, faExclamationCircle
 import type { ContactForm } from '../../types';
 import { useForm } from '../../hooks/useForm';
 import { sendEmail } from '../../services/email';
+import RevealOnScroll from '../common/RevealOnScroll';
 
 const Contact: React.FC = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -40,28 +41,16 @@ const Contact: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <RevealOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-text">Get In Touch</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-slate-300 max-w-2xl mx-auto text-lg">
             I'm currently available for freelance work and full-time positions. If you have a project that you want to get started or think you need my help with something, then get in touch.
           </p>
-        </motion.div>
+        </RevealOnScroll>
         
         <div className="flex flex-col md:flex-row gap-12 max-w-6xl mx-auto">
-          <motion.div 
-            className="md:w-1/2"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
+          <RevealOnScroll className="md:w-1/2" delay={0.2}>
             <div className="space-y-8">
               <div className="flex items-start space-x-6 group">
                 <div className="bg-slate-800 p-4 rounded-2xl group-hover:bg-primary transition-colors duration-300 shadow-lg">
@@ -108,15 +97,9 @@ const Contact: React.FC = () => {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </RevealOnScroll>
           
-          <motion.div 
-            className="md:w-1/2"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
+          <RevealOnScroll className="md:w-1/2" delay={0.4}>
             <div className="bg-slate-800/50 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-slate-700">
               {submitStatus === 'success' && (
                 <motion.div 
@@ -219,7 +202,7 @@ const Contact: React.FC = () => {
                 </motion.button>
               </form>
             </div>
-          </motion.div>
+          </RevealOnScroll>
         </div>
       </div>
     </section>
