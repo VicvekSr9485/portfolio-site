@@ -171,7 +171,7 @@ const Projects: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Featured Projects</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
           <p className="mt-4 text-muted max-w-2xl mx-auto">
-            Here are some of the projects I've worked on, showcasing my expertise in full-stack development and AI integration.
+            Here are some of the projects I've worked on, showcasing my expertise in full-stack development and AI Systems.
           </p>
         </RevealOnScroll>
         

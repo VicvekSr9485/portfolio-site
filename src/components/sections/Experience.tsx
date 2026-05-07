@@ -11,8 +11,8 @@ const ExperienceSection: React.FC = () => {
       id: 1,
       position: "Fullstack AI Engineer",
       company: "SRHIN (Slum and Rural Health Initiative)",
-      period: "2025 - Present",
-      location: "Remote",
+      period: "October, 2025 - Present",
+      location: "Physical",
       responsibilities: [
         "Engineered modular backend services powering conversational health assistant platforms using Python, FastAPI, and Chromadb",
         "Designed clean, scalable database schemas for language detection, FAQ retrieval, and patient interaction logs",
@@ -25,7 +25,7 @@ const ExperienceSection: React.FC = () => {
       id: 2,
       position: "AI Solutions Intern / Full Stack Engineer",
       company: "PARI Technologies",
-      period: "12/2024 - 04/2025",
+      period: "12/2024 - 05/2025",
       location: "Malaysia | Remote",
       responsibilities: [
         "Built production-grade Python APIs for RAG chat systems, embedding pipelines, and document retrieval workflows",
