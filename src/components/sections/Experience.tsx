@@ -62,7 +62,7 @@ const ExperienceSection: React.FC = () => {
         
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/10 transform md:-translate-x-1/2 ml-6 md:ml-0 overflow-hidden">
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-foreground/10 transform md:-translate-x-1/2 ml-6 md:ml-0 overflow-hidden">
             <motion.div 
               className="absolute top-0 left-0 w-full bg-gradient-to-b from-transparent via-primary to-transparent h-[50%]"
               animate={{ top: ["-50%", "100%"] }}
@@ -82,9 +82,9 @@ const ExperienceSection: React.FC = () => {
               <div className="md:w-1/2"></div>
               
               <div className={`md:w-1/2 pl-16 md:pl-0 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}>
-                <div className="bg-secondary p-6 rounded-2xl shadow-lg border border-white/5 relative hover:shadow-primary/5 transition-all duration-300 text-left">
+                <div className="bg-secondary p-6 rounded-2xl shadow-lg border border-foreground/5 relative hover:shadow-primary/5 transition-all duration-300 text-left">
                   {/* Arrow for desktop */}
-                  <div className={`hidden md:block absolute top-6 w-4 h-4 bg-secondary border-t border-l border-white/5 transform rotate-45 ${index % 2 === 0 ? '-left-2.5 border-t-0 border-l-0 border-b border-l' : '-right-2.5 border-b-0 border-r-0 border-t border-r'}`}></div>
+                  <div className={`hidden md:block absolute top-6 w-4 h-4 bg-secondary border-t border-l border-foreground/5 transform rotate-45 ${index % 2 === 0 ? '-left-2.5 border-t-0 border-l-0 border-b border-l' : '-right-2.5 border-b-0 border-r-0 border-t border-r'}`}></div>
                   
                   <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold mb-3 border border-primary/20">
                     {exp.period}

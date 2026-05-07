@@ -4,12 +4,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme tokens — values are space-separated RGB triplets so Tailwind's
+   `<alpha-value>` modifier (e.g. bg-secondary/50) keeps working. */
+:root,
+html.dark {
+  --color-background: 15 23 42;     /* #0F172A slate-900 */
+  --color-text: 244 244 244;        /* near white */
+  --color-primary: 34 211 238;      /* cyan-400 */
+  --color-secondary: 30 41 59;      /* slate-800 */
+  --color-accent: 34 211 238;
+  --color-muted: 148 163 184;       /* slate-400 */
+  --color-dark: 2 6 23;             /* slate-950 */
+  --color-foreground: 255 255 255;  /* used for /opacity overlays + borders */
+}
+
+html.light {
+  --color-background: 248 250 252;  /* slate-50 */
+  --color-text: 15 23 42;           /* slate-900 */
+  --color-primary: 8 145 178;       /* cyan-600, readable on light */
+  --color-secondary: 255 255 255;   /* card surfaces */
+  --color-accent: 8 145 178;
+  --color-muted: 71 85 105;         /* slate-600 */
+  --color-dark: 226 232 240;        /* slate-200, footer in light */
+  --color-foreground: 15 23 42;     /* dark borders/overlays in light */
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   @apply bg-background text-text font-sans antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom Scrollbar */
@@ -27,11 +53,11 @@ body {
 
 /* Glassmorphism */
 .glass {
-  @apply bg-secondary/70 backdrop-blur-lg border border-white/10 shadow-lg;
+  @apply bg-secondary/70 backdrop-blur-lg border border-foreground/10 shadow-lg;
 }
 
 .glass-dark {
-  @apply bg-background/70 backdrop-blur-lg border border-white/5 shadow-lg;
+  @apply bg-background/70 backdrop-blur-lg border border-foreground/5 shadow-lg;
 }
 
 /* Custom animations */

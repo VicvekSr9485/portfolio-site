@@ -38,11 +38,11 @@ const EducationSection: React.FC = () => {
           {educationList.map((edu, index) => (
             <RevealOnScroll 
               key={edu.id} 
-              className="bg-secondary p-8 rounded-2xl shadow-lg border border-white/5 hover:shadow-primary/10 transition-all duration-300 group"
+              className="bg-secondary p-8 rounded-2xl shadow-lg border border-foreground/5 hover:shadow-primary/10 transition-all duration-300 group"
               delay={index * 0.1}
               whileHover={{ y: -5 }}
             >
-              <div className="w-12 h-12 bg-background rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300 border border-white/5">
+              <div className="w-12 h-12 bg-background rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300 border border-foreground/5">
                 <FontAwesomeIcon icon={faGraduationCap} className="text-primary text-xl group-hover:text-background transition-colors duration-300" />
               </div>
               

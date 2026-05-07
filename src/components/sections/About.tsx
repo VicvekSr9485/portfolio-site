@@ -4,8 +4,8 @@ import RevealOnScroll from '../common/RevealOnScroll';
 
 const About: React.FC = () => {
   const strengths = [
-    "Engineering Excellence", "System Design", "TDD", "Scalability", 
-    "Modular Architecture", "API Design", "Problem Solving", "Maintainability"
+    "Multi-Agent LLM Pipelines", "Voice AI", "RAG Systems", "Workflow Orchestration",
+    "FastAPI", "API Design", "System Design", "Technical Communication"
   ];
   
   return (
@@ -18,15 +18,15 @@ const About: React.FC = () => {
         
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <RevealOnScroll className="md:w-1/2" delay={0.2}>
-            <h3 className="text-2xl font-semibold text-primary mb-6">Full Stack & AI Systems Engineer</h3>
+            <h3 className="text-2xl font-semibold text-primary mb-6">Fullstack AI Software Engineer</h3>
             <p className="text-muted mb-4 text-lg leading-relaxed">
-              Full Stack Engineer with 3+ years of hands-on experience building production-grade systems, scalable APIs, and robust architectures. I have a proven ability to design modular service integrations, implement Test Driven Development (TDD) workflows, and deliver high-velocity, high-reliability engineering output.
+              Fullstack AI Software Engineer with 3+ years of experience shipping production-grade software, AI workflows, and API-driven automation. I design multi-agent LLM pipelines, integrate AI APIs (OpenAI, Gemini, Claude), and architect scalable backend services with FastAPI and Python, alongside the modern frontends that make them usable.
             </p>
             <p className="text-muted mb-4 text-lg leading-relaxed">
-              I am experienced in designing clean database schemas, writing developer-friendly documentation, and building real-world service logic including authentication, messaging, workflow automation, and retrieval systems.
+              My background spans the full stack: clean database schemas, modular service integrations, TDD workflows, and developer-friendly documentation. I bring that engineering discipline into AI systems such as voice agents, RAG, and workflow orchestration for remote, cross-functional teams.
             </p>
             <p className="text-muted mb-8 text-lg leading-relaxed">
-              My focus is on engineering excellence, correctness, and maintainability, ensuring that every system I build is robust, scalable, and ready for production.
+              I'm adept at client-facing technical communication, debugging across complex stacks, and documenting systems for clean handoff, so the things I build keep working long after I ship them.
             </p>
             
             <div className="flex flex-wrap gap-3">
@@ -45,21 +45,21 @@ const About: React.FC = () => {
           <RevealOnScroll className="md:w-1/2 flex justify-center" delay={0.4}>
             <div className="relative group w-full max-w-md">
               <div className="absolute -inset-1 bg-primary/30 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative bg-secondary p-8 rounded-2xl shadow-xl border border-white/5">
+              <div className="relative bg-secondary p-8 rounded-2xl shadow-xl border border-foreground/5">
                 <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center p-4 bg-background/50 rounded-xl border border-white/5">
+                  <div className="text-center p-4 bg-background/50 rounded-xl border border-foreground/5">
                     <h4 className="text-3xl font-bold text-primary mb-1">3+</h4>
                     <p className="text-sm text-muted">Years Experience</p>
                   </div>
-                  <div className="text-center p-4 bg-background/50 rounded-xl border border-white/5">
+                  <div className="text-center p-4 bg-background/50 rounded-xl border border-foreground/5">
                     <h4 className="text-3xl font-bold text-primary mb-1">10+</h4>
                     <p className="text-sm text-muted">Projects Completed</p>
                   </div>
-                  <div className="text-center p-4 bg-background/50 rounded-xl border border-white/5">
+                  <div className="text-center p-4 bg-background/50 rounded-xl border border-foreground/5">
                     <h4 className="text-3xl font-bold text-primary mb-1">5+</h4>
                     <p className="text-sm text-muted">Happy Clients</p>
                   </div>
-                  <div className="text-center p-4 bg-background/50 rounded-xl border border-white/5">
+                  <div className="text-center p-4 bg-background/50 rounded-xl border border-foreground/5">
                     <h4 className="text-3xl font-bold text-primary mb-1">24/7</h4>
                     <p className="text-sm text-muted">Support</p>
                   </div>

@@ -81,7 +81,7 @@ const Skills: React.FC = () => {
       skills: [
         { name: "Docker & Kubernetes", icon: "fab fa-docker", color: "text-blue-500" },
         { name: "Git", icon: "fab fa-git-alt", color: "text-orange-500" },
-        { name: "Linux", icon: "fab fa-linux", color: "text-slate-400" },
+        { name: "Linux", icon: "fab fa-linux", color: "text-muted" },
         { name: "Shell Scripting", icon: "fas fa-terminal", color: "text-green-400" },
         { name: "Pytest & TDD", icon: "fas fa-check-circle", color: "text-green-500" },
         { name: "CI Workflows", icon: "fas fa-sync", color: "text-blue-400" },
@@ -102,21 +102,21 @@ const Skills: React.FC = () => {
           {skillCategories.map((category, catIndex) => (
             <RevealOnScroll 
               key={catIndex}
-              className="bg-secondary p-6 rounded-2xl shadow-lg border border-white/5 hover:border-primary/20 transition-colors duration-300 h-full"
+              className="bg-secondary p-6 rounded-2xl shadow-lg border border-foreground/5 hover:border-primary/20 transition-colors duration-300 h-full"
               delay={catIndex * 0.1}
             >
 
               <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full -mr-10 -mt-10 transition-transform duration-500 ease-out transform scale-0 group-hover:scale-100"></div>
               
-              <h3 className="text-xl font-bold mb-6 text-primary border-b border-white/10 pb-2 relative z-10">{category.title}</h3>
+              <h3 className="text-xl font-bold mb-6 text-primary border-b border-foreground/10 pb-2 relative z-10">{category.title}</h3>
               <div className="space-y-4 relative z-10">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div 
                     key={skillIndex} 
-                    className="flex items-center p-2 rounded-lg hover:bg-white/5 transition-colors cursor-default"
+                    className="flex items-center p-2 rounded-lg hover:bg-foreground/5 transition-colors cursor-default"
                     whileHover={{ x: 5 }}
                   >
-                    <div className={`w-10 h-10 rounded-lg bg-background flex items-center justify-center mr-4 transition-colors border border-white/5`}>
+                    <div className={`w-10 h-10 rounded-lg bg-background flex items-center justify-center mr-4 transition-colors border border-foreground/5`}>
                       <FontAwesomeIcon 
                         icon={iconMap[skill.icon] || faCode} 
                         className={`text-xl ${skill.color}`} 

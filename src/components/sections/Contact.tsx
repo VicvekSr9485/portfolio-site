@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
         <RevealOnScroll className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-text">Get In Touch</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
-          <p className="text-slate-300 max-w-2xl mx-auto text-lg">
+          <p className="text-text/80 max-w-2xl mx-auto text-lg">
             I'm currently available for freelance work and full-time positions. If you have a project that you want to get started or think you need my help with something, then get in touch.
           </p>
         </RevealOnScroll>
@@ -53,32 +53,32 @@ const Contact: React.FC = () => {
           <RevealOnScroll className="md:w-1/2" delay={0.2}>
             <div className="space-y-8">
               <div className="flex items-start space-x-6 group">
-                <div className="bg-slate-800 p-4 rounded-2xl group-hover:bg-primary transition-colors duration-300 shadow-lg">
+                <div className="bg-secondary p-4 rounded-2xl group-hover:bg-primary transition-colors duration-300 shadow-lg">
                   <FontAwesomeIcon icon={faPhone} className="text-2xl text-primary group-hover:text-white transition-colors duration-300" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-1 text-text">Phone</h3>
-                  <p className="text-slate-400 group-hover:text-text transition-colors duration-300">+2347086718384</p>
+                  <p className="text-muted group-hover:text-text transition-colors duration-300">+2347086718384</p>
                 </div>
               </div>
               
               <div className="flex items-start space-x-6 group">
-                <div className="bg-slate-800 p-4 rounded-2xl group-hover:bg-primary transition-colors duration-300 shadow-lg">
+                <div className="bg-secondary p-4 rounded-2xl group-hover:bg-primary transition-colors duration-300 shadow-lg">
                   <FontAwesomeIcon icon={faEnvelope} className="text-2xl text-primary group-hover:text-white transition-colors duration-300" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-1 text-text">Email</h3>
-                  <p className="text-slate-400 group-hover:text-text transition-colors duration-300">olamideoso65@gmail.com</p>
+                  <p className="text-muted group-hover:text-text transition-colors duration-300">olamideoso65@gmail.com</p>
                 </div>
               </div>
               
               <div className="flex items-start space-x-6 group">
-                <div className="bg-slate-800 p-4 rounded-2xl group-hover:bg-primary transition-colors duration-300 shadow-lg">
+                <div className="bg-secondary p-4 rounded-2xl group-hover:bg-primary transition-colors duration-300 shadow-lg">
                   <FontAwesomeIcon icon={faMapMarkerAlt} className="text-2xl text-primary group-hover:text-white transition-colors duration-300" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-1 text-text">Location</h3>
-                  <p className="text-slate-400 group-hover:text-text transition-colors duration-300">Ibadan, Oyo State, Nigeria</p>
+                  <p className="text-muted group-hover:text-text transition-colors duration-300">Ibadan, Oyo State, Nigeria</p>
                 </div>
               </div>
             </div>
@@ -86,13 +86,13 @@ const Contact: React.FC = () => {
             <div className="mt-12">
               <h3 className="text-xl font-bold mb-6 text-text">Follow Me</h3>
               <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/in/oso-olamide/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all duration-300 shadow-lg text-white">
+                <a href="https://www.linkedin.com/in/oso-olamide/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all duration-300 shadow-lg text-text">
                   <FontAwesomeIcon icon={faLinkedinIn} className="text-xl" />
                 </a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all duration-300 shadow-lg text-white">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all duration-300 shadow-lg text-text">
                   <FontAwesomeIcon icon={faGithub} className="text-xl" />
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all duration-300 shadow-lg text-white">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all duration-300 shadow-lg text-text">
                   <FontAwesomeIcon icon={faTwitter} className="text-xl" />
                 </a>
               </div>
@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
           </RevealOnScroll>
           
           <RevealOnScroll className="md:w-1/2" delay={0.4}>
-            <div className="bg-slate-800/50 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-slate-700">
+            <div className="bg-secondary/50 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-foreground/10">
               {submitStatus === 'success' && (
                 <motion.div 
                   initial={{ opacity: 0, y: -10 }}
@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block mb-2 text-sm font-medium text-slate-300">Name</label>
+                  <label htmlFor="name" className="block mb-2 text-sm font-medium text-text/80">Name</label>
                   <motion.div whileFocus={{ scale: 1.02 }} className="relative">
                     <input
                       type="text"
@@ -133,7 +133,7 @@ const Contact: React.FC = () => {
                       name="name"
                       value={values.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900/50 border border-slate-700 text-text placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-dark/40 border border-foreground/10 text-text placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                       placeholder="Your Name"
                       required
                     />
@@ -142,7 +142,7 @@ const Contact: React.FC = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block mb-2 text-sm font-medium text-slate-300">Email</label>
+                  <label htmlFor="email" className="block mb-2 text-sm font-medium text-text/80">Email</label>
                   <motion.div whileFocus={{ scale: 1.02 }} className="relative">
                     <input
                       type="email"
@@ -150,7 +150,7 @@ const Contact: React.FC = () => {
                       name="email"
                       value={values.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900/50 border border-slate-700 text-text placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-dark/40 border border-foreground/10 text-text placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                       placeholder="Your Email"
                       required
                     />
@@ -158,7 +158,7 @@ const Contact: React.FC = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block mb-2 text-sm font-medium text-slate-300">Message</label>
+                  <label htmlFor="message" className="block mb-2 text-sm font-medium text-text/80">Message</label>
                   <motion.div whileFocus={{ scale: 1.02 }} className="relative">
                     <textarea
                       id="message"
@@ -166,7 +166,7 @@ const Contact: React.FC = () => {
                       value={values.message}
                       onChange={handleChange}
                       rows={5}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900/50 border border-slate-700 text-text placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-dark/40 border border-foreground/10 text-text placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
                       placeholder="Your Message"
                       required
                     ></textarea>
@@ -176,11 +176,11 @@ const Contact: React.FC = () => {
                 <motion.button 
                   type="submit" 
                   disabled={submitStatus === 'loading'}
-                  className="w-full py-4 text-lg bg-primary text-background font-bold rounded-xl hover:bg-white transition-colors relative overflow-hidden group"
+                  className="w-full py-4 text-lg bg-primary text-background font-bold rounded-xl hover:bg-foreground transition-colors relative overflow-hidden group"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                  <div className="absolute inset-0 bg-foreground/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     {submitStatus === 'loading' ? (
                       <>

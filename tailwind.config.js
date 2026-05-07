@@ -2,16 +2,18 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        background: '#0F172A', // dark navy
-        text: '#F4F4F4', // light gray
-        primary: '#22D3EE', // neon cyan
-        secondary: '#1E293B', // slightly lighter dark for cards
-        accent: '#22D3EE', // neon cyan
-        muted: '#94A3B8', // slate-400 for secondary text
-        dark: '#020617', // darker shade
+        background: 'rgb(var(--color-background) / <alpha-value>)',
+        text: 'rgb(var(--color-text) / <alpha-value>)',
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+        accent: 'rgb(var(--color-accent) / <alpha-value>)',
+        muted: 'rgb(var(--color-muted) / <alpha-value>)',
+        dark: 'rgb(var(--color-dark) / <alpha-value>)',
+        foreground: 'rgb(var(--color-foreground) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

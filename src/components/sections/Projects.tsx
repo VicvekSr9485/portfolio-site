@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faExternalLinkAlt, faBookReader } from '@fortawesome/free-solid-svg-icons';
+import { faBookReader, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import type { Project } from '../../types';
 import RevealOnScroll from '../common/RevealOnScroll';
 
@@ -51,36 +51,38 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      className="bg-secondary rounded-2xl overflow-hidden shadow-lg border border-white/5 flex flex-col h-full relative group perspective-1000"
+      className="bg-secondary rounded-2xl overflow-hidden shadow-lg border border-foreground/5 flex flex-col h-full relative group perspective-1000"
     >
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 z-20"></div>
       
       <div className="h-64 overflow-hidden relative group" style={{ transform: "translateZ(50px)" }}>
         <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center gap-4">
-          {project.liveUrl === project.githubUrl && project.liveUrl.includes('linkedin.com') ? (
-            <a 
-              href={project.liveUrl} 
-              target="_blank" 
+          {project.githubUrl.includes('linkedin.com') ? (
+            <a
+              href={project.githubUrl}
+              target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-primary rounded-full text-background hover:bg-white transition-colors transform hover:scale-110"
+              className="p-3 bg-primary rounded-full text-background hover:bg-foreground transition-colors transform hover:scale-110"
               title="Read Article"
             >
               <FontAwesomeIcon icon={faBookReader} />
             </a>
           ) : (
             <>
-              <a 
-                href={project.liveUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 bg-primary rounded-full text-background hover:bg-white transition-colors transform hover:scale-110"
-                title="View Live Site"
-              >
-                <FontAwesomeIcon icon={faExternalLinkAlt} />
-              </a>
-              <a 
-                href={project.githubUrl} 
-                target="_blank" 
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-primary rounded-full text-background hover:bg-foreground transition-colors transform hover:scale-110"
+                  title="View Live Site"
+                >
+                  <FontAwesomeIcon icon={faExternalLinkAlt} />
+                </a>
+              )}
+              <a
+                href={project.githubUrl}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-secondary border border-primary text-primary rounded-full hover:bg-primary hover:text-background transition-colors transform hover:scale-110"
                 title="View Code"
@@ -125,17 +127,15 @@ const Projects: React.FC = () => {
       description: "A production-ready Level 3 Modular Monolith Agent Swarm using Google ADK. Features a hierarchical architecture with an orchestrator supervising five specialized agents, Agent-to-Agent (A2A) protocol, HITL workflows, and persistent session memory.",
       image: "/images/enterprise-agents.png",
       technologies: ["Python", "Google ADK", "SQLite", "Hugging Face", "Multi-Agent Systems"],
-      liveUrl: "https://agentic-enterprise-platform.vercel.app/",
       githubUrl: "https://github.com/VicvekSr9485/Agentic-Enterprise-Platform"
     },
     {
       id: 2,
-      title: "Conversational AI Research Automation",
-      description: "Python backend for multi-agent workflow automation handling task routing, document processing, and reporting. Built with clear separation of concerns and reusable utility modules.",
-      image: "/images/ai-research-generator.png",
-      technologies: ["Python", "FastAPI", "LangChain", "Workflow Automation"],
-      liveUrl: "https://multi-agents-workflow-automation.vercel.app/",
-      githubUrl: "https://github.com/VicvekSr9485/multi-agents-workflow-automation"
+      title: "Vingo AI",
+      description: "Real-time AI German language tutor — voice-driven conversations in your browser. Local ASR (faster-whisper) and neural German TTS (Piper) keep audio on-device; a dual-agent loop holds the conversation and delivers structured grammar corrections in under 2.5 seconds on CPU. CEFR-adaptive (A1–C2) with personalised RAG over past mistakes, auto-generated flashcards, and an installable PWA.",
+      image: "/images/vingo-ai.png",
+      technologies: ["Python", "faster-whisper", "Piper TTS", "ChromaDB", "RAG", "PWA"],
+      githubUrl: "https://github.com/VicvekSr9485/vingo-ai"
     },
     {
       id: 3,
@@ -143,7 +143,6 @@ const Projects: React.FC = () => {
       description: "A scalable backend using Spring Boot and PostgreSQL. Features a fully relational database schema, secure authentication flows, and comprehensive CRUD services with proper test coverage.",
       image: "/images/bugtracker.png",
       technologies: ["Java", "Spring Boot", "PostgreSQL", "JUnit", "REST API"],
-      liveUrl: "https://bug-tracking-system-xi.vercel.app/",
       githubUrl: "https://github.com/VicvekSr9485/Bug-Tracking-System"
     },
     {
@@ -152,7 +151,6 @@ const Projects: React.FC = () => {
       description: "Designed and implemented a fully normalized relational database (21+ entities) for an Airbnb-style platform. Engineered conflict-free booking workflows, property management, and secure payment processing.",
       image: "/images/datamart.png",
       technologies: ["SQL", "Database Design", "Normalization", "Data Integrity"],
-      liveUrl: "https://www.linkedin.com/pulse/building-scalable-rental-company-database-from-oso-olamide--htxvf",
       githubUrl: "https://www.linkedin.com/pulse/building-scalable-rental-company-database-from-oso-olamide--htxvf"
     },
     {

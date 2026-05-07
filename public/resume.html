@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Olamide Oso — Resume</title>
+    <meta name="description" content="Resume for Olamide Oso, Fullstack AI Software Engineer." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f8fafc;
+        --paper: #ffffff;
+        --ink: #0f172a;
+        --ink-soft: #334155;
+        --muted: #64748b;
+        --rule: #e2e8f0;
+        --accent: #0891b2;
+        --accent-soft: #ecfeff;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        color: var(--ink);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(8px);
+        background: rgba(248, 250, 252, 0.85);
+        border-bottom: 1px solid var(--rule);
+        padding: 12px 24px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .toolbar button, .toolbar a {
+        font: inherit;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--rule);
+        background: var(--paper);
+        color: var(--ink);
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.15s ease;
+      }
+      .toolbar button:hover, .toolbar a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .toolbar .primary {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+      }
+      .toolbar .primary:hover {
+        filter: brightness(1.1);
+        color: #fff;
+      }
+
+      .page {
+        max-width: 880px;
+        margin: 32px auto;
+        background: var(--paper);
+        padding: 56px 64px;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05), 0 10px 40px rgba(15, 23, 42, 0.08);
+        border-radius: 4px;
+      }
+
+      header.hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .name {
+        margin: 0;
+        font-size: 34px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+      .title {
+        margin: 6px 0 0;
+        font-size: 15px;
+        color: var(--accent);
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+      .pitch {
+        margin: 14px 0 0;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        max-width: 56ch;
+      }
+
+      .contact {
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        text-align: right;
+        white-space: nowrap;
+      }
+      .contact a {
+        color: var(--ink-soft);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+      }
+      .contact a:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+      .contact div + div { margin-top: 4px; }
+
+      section {
+        margin-top: 28px;
+      }
+
+      h2.section-title {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin: 0 0 12px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .role {
+        margin-bottom: 18px;
+        page-break-inside: avoid;
+      }
+      .role:last-child { margin-bottom: 0; }
+
+      .role-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        margin-bottom: 2px;
+      }
+      .role-position {
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .role-period {
+        font-size: 12px;
+        color: var(--muted);
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+        white-space: nowrap;
+      }
+      .role-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        font-size: 13px;
+        color: var(--ink-soft);
+        margin-bottom: 8px;
+      }
+      .role-company { font-weight: 500; color: var(--accent); }
+      .role-location { font-size: 12px; color: var(--muted); }
+
+      ul.bullets {
+        margin: 0;
+        padding-left: 18px;
+        list-style: none;
+      }
+      ul.bullets li {
+        position: relative;
+        padding-left: 4px;
+        font-size: 13px;
+        color: var(--ink-soft);
+        margin-bottom: 4px;
+        line-height: 1.55;
+      }
+      ul.bullets li::before {
+        content: '';
+        position: absolute;
+        left: -12px;
+        top: 8px;
+        width: 4px;
+        height: 4px;
+        background: var(--accent);
+        border-radius: 50%;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 32px;
+      }
+
+      .skill-group .skill-label {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--ink);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 6px;
+      }
+      .skill-group .skill-list {
+        font-size: 13px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+
+      .edu-row, .cert-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        padding: 6px 0;
+        border-bottom: 1px dashed var(--rule);
+      }
+      .edu-row:last-child, .cert-row:last-child { border-bottom: 0; }
+
+      .edu-degree, .cert-title {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .edu-meta, .cert-meta {
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+      .edu-meta strong, .cert-meta strong { color: var(--ink-soft); font-weight: 500; }
+      .cert-date {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11.5px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .project {
+        margin-bottom: 14px;
+        page-break-inside: avoid;
+      }
+      .project:last-child { margin-bottom: 0; }
+      .project-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        margin-bottom: 2px;
+      }
+      .project-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .project-link {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11.5px;
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .project-link:hover { text-decoration: underline; }
+      .project-desc {
+        font-size: 13px;
+        color: var(--ink-soft);
+        margin: 2px 0 4px;
+        line-height: 1.55;
+      }
+      .project-tech {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      footer {
+        margin-top: 32px;
+        padding-top: 14px;
+        border-top: 1px solid var(--rule);
+        font-size: 11.5px;
+        color: var(--muted);
+        text-align: center;
+      }
+      footer a { color: var(--muted); text-decoration: none; }
+      footer a:hover { color: var(--accent); }
+
+      /* Print */
+      @media print {
+        :root {
+          --bg: #ffffff;
+          --paper: #ffffff;
+        }
+        .toolbar { display: none; }
+        .page {
+          margin: 0;
+          padding: 18mm 16mm;
+          box-shadow: none;
+          max-width: none;
+          border-radius: 0;
+        }
+        @page {
+          size: A4;
+          margin: 0;
+        }
+        body { font-size: 11.5pt; }
+        .role, .project { page-break-inside: avoid; }
+        h2.section-title { page-break-after: avoid; }
+      }
+
+      @media (max-width: 720px) {
+        .page { padding: 32px 24px; margin: 16px; }
+        header.hero { flex-direction: column; }
+        .contact { text-align: left; }
+        .role-head, .role-meta, .project-head, .edu-row, .cert-row {
+          flex-wrap: wrap;
+        }
+        .grid-2 { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar">
+      <a href="/" aria-label="Back to portfolio">← Portfolio</a>
+      <button class="primary" onclick="window.print()">Download PDF</button>
+    </div>
+
+    <article class="page">
+      <header class="hero">
+        <div>
+          <h1 class="name">Olamide Oso</h1>
+          <p class="title">Fullstack AI Software Engineer</p>
+          <p class="pitch">
+            3+ years shipping production-grade software, multi-agent LLM pipelines, voice agents,
+            and API-driven automation. Python &amp; FastAPI on the backend, modern TypeScript on the
+            frontend, with deep experience integrating OpenAI, Gemini, and Claude.
+          </p>
+        </div>
+        <div class="contact">
+          <div><a href="mailto:olamideoso65@gmail.com">olamideoso65@gmail.com</a></div>
+          <div><a href="tel:+2347086718384">+234 708 671 8384</a></div>
+          <div>Ibadan, Nigeria · Remote</div>
+          <div><a href="https://www.linkedin.com/in/oso-olamide/" target="_blank" rel="noopener">linkedin.com/in/oso-olamide</a></div>
+          <div><a href="https://github.com/VicvekSr9485" target="_blank" rel="noopener">github.com/VicvekSr9485</a></div>
+        </div>
+      </header>
+
+      <section>
+        <h2 class="section-title">Profile</h2>
+        <p style="margin: 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.6;">
+          Results-driven Fullstack AI Software Engineer specialising in multi-agent LLM pipelines,
+          voice AI, and RAG systems. Architect scalable backend services with FastAPI and Python,
+          alongside the modern frontends that make them usable. Proven track record delivering
+          full-stack automation for remote, cross-functional teams. Adept at client-facing technical
+          communication, debugging across complex stacks, and documenting systems for clean handoff.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="section-title">Experience</h2>
+
+        <div class="role">
+          <div class="role-head">
+            <div class="role-position">Fullstack AI Engineer</div>
+            <div class="role-period">2025 — Present</div>
+          </div>
+          <div class="role-meta">
+            <div class="role-company">SRHIN — Slum and Rural Health Initiative</div>
+            <div class="role-location">Remote</div>
+          </div>
+          <ul class="bullets">
+            <li>Engineered modular backend services powering conversational health-assistant platforms with Python, FastAPI, and ChromaDB.</li>
+            <li>Designed scalable database schemas for language detection, FAQ retrieval, and patient-interaction logging.</li>
+            <li>Implemented TDD workflows with Pytest to validate service behaviour before feature rollout.</li>
+            <li>Built structured API endpoints with clear OpenAPI documentation for internal teams and external collaborators.</li>
+            <li>Developed agentic and retrieval pipelines with deterministic logic, ensuring predictable runtime behaviour.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <div class="role-position">AI Solutions Intern / Full Stack Engineer</div>
+            <div class="role-period">Dec 2024 — Apr 2025</div>
+          </div>
+          <div class="role-meta">
+            <div class="role-company">PARI Technologies</div>
+            <div class="role-location">Malaysia · Remote</div>
+          </div>
+          <ul class="bullets">
+            <li>Built production-grade Python APIs for RAG chat systems, embedding pipelines, and document-retrieval workflows.</li>
+            <li>Implemented modular backend components enabling service reuse across multiple deployments.</li>
+            <li>Followed test-first engineering practices to validate service logic before integration.</li>
+            <li>Designed and optimised database schemas for embeddings, session histories, and document metadata.</li>
+            <li>Wrote developer-focused documentation to support onboarding and service integration at scale.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <div class="role-position">Software Engineer Trainee</div>
+            <div class="role-period">Feb 2022 — Mar 2023</div>
+          </div>
+          <div class="role-meta">
+            <div class="role-company">ALX (Backend Specialisation)</div>
+            <div class="role-location">Remote</div>
+          </div>
+          <ul class="bullets">
+            <li>Designed software architectures with load-balancing and caching while avoiding single-point-of-failure (SPOF) topologies.</li>
+            <li>Developed and deployed server-side applications, managing multiple projects to completion.</li>
+            <li>Collaborated across cross-functional teams using Git for version control and code review.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Selected Projects</h2>
+
+        <div class="project">
+          <div class="project-head">
+            <div class="project-name">Vingo AI — Real-time German language tutor</div>
+            <a class="project-link" href="https://github.com/VicvekSr9485/vingo-ai" target="_blank" rel="noopener">github.com/VicvekSr9485/vingo-ai</a>
+          </div>
+          <p class="project-desc">
+            Voice-driven AI German tutor with local ASR (faster-whisper) and neural TTS (Piper). Dual-agent
+            conversation + grammar correction in under 2.5s on CPU. CEFR-adaptive, personalised RAG over past
+            mistakes, auto-generated flashcards, installable PWA.
+          </p>
+          <div class="project-tech">Python · faster-whisper · Piper · ChromaDB · RAG · PWA</div>
+        </div>
+
+        <div class="project">
+          <div class="project-head">
+            <div class="project-name">Agentic Enterprise AI System</div>
+            <a class="project-link" href="https://github.com/VicvekSr9485/Agentic-Enterprise-Platform" target="_blank" rel="noopener">github.com/VicvekSr9485/Agentic-Enterprise-Platform</a>
+          </div>
+          <p class="project-desc">
+            Production-ready Level-3 Modular Monolith Agent Swarm built on Google ADK. Hierarchical orchestrator
+            supervising five specialised agents over Agent-to-Agent (A2A) protocol with HITL workflows and
+            persistent session memory.
+          </p>
+          <div class="project-tech">Python · Google ADK · SQLite · Hugging Face · Multi-Agent Systems</div>
+        </div>
+
+        <div class="project">
+          <div class="project-head">
+            <div class="project-name">Bug Tracking System</div>
+            <a class="project-link" href="https://github.com/VicvekSr9485/Bug-Tracking-System" target="_blank" rel="noopener">github.com/VicvekSr9485/Bug-Tracking-System</a>
+          </div>
+          <p class="project-desc">
+            Spring Boot backend with PostgreSQL, fully relational schema, secure auth flows, and comprehensive
+            CRUD services backed by JUnit test coverage.
+          </p>
+          <div class="project-tech">Java · Spring Boot · PostgreSQL · JUnit · REST</div>
+        </div>
+
+        <div class="project">
+          <div class="project-head">
+            <div class="project-name">Scalable Rental Marketplace Database</div>
+            <a class="project-link" href="https://www.linkedin.com/pulse/building-scalable-rental-company-database-from-oso-olamide--htxvf" target="_blank" rel="noopener">Read article ↗</a>
+          </div>
+          <p class="project-desc">
+            Fully-normalised relational database (21+ entities) for an Airbnb-style platform. Conflict-free
+            booking workflows, property management, and secure payment processing.
+          </p>
+          <div class="project-tech">SQL · Database Design · Normalisation · Data Integrity</div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="grid-2">
+          <div class="skill-group">
+            <div class="skill-label">Languages</div>
+            <div class="skill-list">Python (Advanced), TypeScript / JavaScript, Java, Rust, C, SQL</div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Backend</div>
+            <div class="skill-list">FastAPI, NestJS, Express.js, AsyncIO, REST API design, Pydantic, modular architecture</div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">AI &amp; Data</div>
+            <div class="skill-list">Multi-agent LLM pipelines, LangChain, Google ADK, RAG &amp; embeddings, function calling, model fine-tuning, ChromaDB, PostgreSQL, NoSQL, Pandas</div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Tooling &amp; Ops</div>
+            <div class="skill-list">Docker, Kubernetes, Git, Linux, shell scripting, Pytest &amp; TDD, CI workflows, Swagger / OpenAPI</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Education</h2>
+        <div class="edu-row">
+          <div>
+            <div class="edu-degree">B.Sc. Computer Science</div>
+            <div class="edu-meta"><strong>IU International University of Applied Sciences</strong> · Bad Honnef, Germany</div>
+          </div>
+        </div>
+        <div class="edu-row">
+          <div>
+            <div class="edu-degree">B.Sc. Agricultural Extension &amp; Rural Development</div>
+            <div class="edu-meta"><strong>University of Ibadan</strong> · Ibadan, Nigeria</div>
+          </div>
+        </div>
+        <div class="edu-row">
+          <div>
+            <div class="edu-degree">National Diploma — Science Laboratory Technology</div>
+            <div class="edu-meta"><strong>Crown Polytechnic</strong> · Odo Ado, Ekiti, Nigeria</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Certifications</h2>
+        <div class="cert-row">
+          <div>
+            <div class="cert-title">Kubernetes and Cloud Native Associate (KCNA)</div>
+            <div class="cert-meta">The Linux Foundation</div>
+          </div>
+          <div class="cert-date">2025</div>
+        </div>
+        <div class="cert-row">
+          <div>
+            <div class="cert-title">Kubernetes &amp; Cloud Native Essentials (LFS250)</div>
+            <div class="cert-meta">The Linux Foundation</div>
+          </div>
+          <div class="cert-date">2025</div>
+        </div>
+        <div class="cert-row">
+          <div>
+            <div class="cert-title">Fundamentals of AI/ML in Precision Medicine</div>
+            <div class="cert-meta">Stanford Data Ocean — Stanford University</div>
+          </div>
+          <div class="cert-date">2025</div>
+        </div>
+        <div class="cert-row">
+          <div>
+            <div class="cert-title">Fundamentals of Data Science in Precision Medicine &amp; Cloud Computing</div>
+            <div class="cert-meta">Stanford Data Ocean — Stanford University</div>
+          </div>
+          <div class="cert-date">2025</div>
+        </div>
+        <div class="cert-row">
+          <div>
+            <div class="cert-title">Full-Stack Software Engineer — Backend Specialisation</div>
+            <div class="cert-meta">ALX</div>
+          </div>
+          <div class="cert-date">2023</div>
+        </div>
+        <div class="cert-row">
+          <div>
+            <div class="cert-title">Containers w/ Docker, Kubernetes &amp; OpenShift</div>
+            <div class="cert-meta">IBM · Coursera</div>
+          </div>
+          <div class="cert-date">2023</div>
+        </div>
+        <div class="cert-row">
+          <div>
+            <div class="cert-title">Introduction to Agile Development &amp; Scrum</div>
+            <div class="cert-meta">IBM · Coursera</div>
+          </div>
+          <div class="cert-date">2023</div>
+        </div>
+        <div class="cert-row">
+          <div>
+            <div class="cert-title">Google IT Support Professional</div>
+            <div class="cert-meta">Google · Coursera</div>
+          </div>
+          <div class="cert-date">2021</div>
+        </div>
+      </section>
+
+      <footer>
+        References available on request · Updated <span id="resume-updated"></span>
+      </footer>
+    </article>
+
+    <script>
+      var d = new Date();
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      document.getElementById('resume-updated').textContent = months[d.getMonth()] + ' ' + d.getFullYear();
+    </script>
+  </body>
+</html>

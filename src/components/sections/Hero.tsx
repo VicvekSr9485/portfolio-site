@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <TypewriterText text="Full Stack & AI Engineer building scalable, production-grade systems." delay={1000} />
+            <TypewriterText text="Fullstack AI Software Engineer, building production-grade software, multi-agent LLM pipelines, and AI automation." delay={1000} />
           </motion.div>
           
           <motion.div 
@@ -95,8 +95,9 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Button variant="primary" href="#projects">View My Work</Button>
+            <Button variant="primary" href="#projects">View Some of My Works</Button>
             <Button variant="outline" href="#contact">Contact Me</Button>
+            <Button variant="ghost" href="/resume.html" target="_blank" rel="noopener noreferrer">Resume ↗</Button>
           </motion.div>
         </div>
         

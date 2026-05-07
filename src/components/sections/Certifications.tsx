@@ -68,12 +68,12 @@ const Certifications: React.FC = () => {
           {certifications.map((cert, index) => (
             <RevealOnScroll 
               key={cert.id} 
-              className="bg-secondary p-6 rounded-2xl shadow-md border border-white/5 hover:shadow-primary/10 transition-all duration-300 group flex flex-col h-full"
+              className="bg-secondary p-6 rounded-2xl shadow-md border border-foreground/5 hover:shadow-primary/10 transition-all duration-300 group flex flex-col h-full"
               delay={index * 0.05}
               whileHover={{ y: -5 }}
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="w-10 h-10 bg-background rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300 border border-white/5">
+                <div className="w-10 h-10 bg-background rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300 border border-foreground/5">
                   <FontAwesomeIcon icon={faCertificate} className="text-primary text-lg group-hover:text-background transition-colors duration-300" />
                 </div>
                 <div>
@@ -81,7 +81,7 @@ const Certifications: React.FC = () => {
                 </div>
               </div>
               
-              <div className="mt-auto pt-4 border-t border-white/5">
+              <div className="mt-auto pt-4 border-t border-foreground/5">
                 <p className="text-muted font-medium text-sm mb-1">{cert.issuer}</p>
                 <p className="text-muted/60 text-xs flex items-center gap-1">
                   <FontAwesomeIcon icon={faCalendarCheck} /> Issued: {cert.date}

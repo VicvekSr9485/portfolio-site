@@ -27,9 +27,9 @@ const Button: React.FC<ButtonProps> = ({
   
   const variantClasses = {
     primary: 'bg-primary text-background hover:bg-cyan-300 hover:shadow-lg shadow-primary/20 font-bold',
-    secondary: 'bg-secondary text-text hover:bg-slate-700 hover:shadow-lg shadow-black/30 border border-white/5',
+    secondary: 'bg-secondary text-text hover:bg-secondary/70 hover:shadow-lg shadow-black/30 border border-foreground/5',
     outline: 'border border-primary text-primary hover:bg-primary/10',
-    ghost: 'text-muted hover:text-primary hover:bg-white/5'
+    ghost: 'text-muted hover:text-primary hover:bg-foreground/5'
   };
   
   const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed hover:transform-none' : '';
